@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 400;
+    color: white;  /* Текст белый */
+    font-size: 16px;
+    background: #000000;
+}
+
+a {
+    text-decoration: none; /* В случае ошибки в слове не будет подчеркивания */
+}
+
+img {
+    max-width: 100%; /* Никакое изображение не будет вылезать из родительского блока */
+}
+
+.wrapper {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(74,40,0,1) 100%); /* Градиент на бг */
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 1400px; /* Отступы по бокам */
+    margin: 0 auto;
+}
+
+header{
+    padding: 50px 0; /* Отступы сверху и снизу */
+}
+
+header .logo{
+    text-transform: uppercase;
+    font-size: 29px; /* Размер текста */
+    font-weight: 800; /* Жирность текста */
+}
+
+header nav {
+    float: right;
+    width: 50%; /* Отступы по краям */
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* Навигационные элементы раскиданы по верхнему блоку */
+    z-index: 2; /* Слой 2 что бы не картинка джостика не перекрывала элементы блока */
+    position: relative;
+}
+
+header nav ul li{
+    display: inline-block; /* Каждый конкретный элемент - строчный блок для того что бы добавить расширеный дизайн к навигации */
+}
+
+header nav ul li a{
+    color:#fff /* Перекрас ссылок в белый */
+}
+
+header nav ul li.active::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #DC7000;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    left: -15px;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover{ /* Селектор не будет применяться к элементу active и btn */
+    border-bottom: 5px solid #DC7000; /* Анимация обводки при наведении */
+}
+
+header nav ul li.btn a{     /* Дизайн кнопки */
+    background: #fa9021; /* Цвет кнопки */
+    padding: 9px 17px;    /* Внутренние отступы по высоте 9пкc, по бокам 17 */
+    border-radius: 5px;  /* Скругление улов кнопки */
+    transition: all 500ms ease;  /* Анимация длится 500 милисекунд. ease - название анимации. Плавный переход применяется ко всем св-вам*/
+}
+
+header nav ul li.btn a:hover{ /* Анимация наводки на кнопку */
+    background: #a02604
+}
+
+.hero{
+    padding-bottom: 100px; /* Отступ вниз от этой секции */
+    position: relative;
+    z-index: 1;
+}
+
+.hero--info{
+    width: 530px; /* Секция с заголовком и описанием */
+    padding-top: 70px; /* Отступ 70px от LOGO */
+}
+
+.hero--info h2{                                      /* Дизайн "3D GAME DEV" */
+    color: #e87d0e; /* Цвет */
+    font-size: 20px; /* Размер текста */
+    font-weight: 600; /* Жирность шрифта */
+}
+
+.hero--info h1{                                      /* Дизайн заголовка */
+    font-size: 50px; /* Размер текста */
+    font-weight: bold; /* Жирность шрифта */
+}
+
+.hero--info p {
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px 0;
+}
+
+.hero--info .btn {                                   /* Дизайн кнопки */
+    background: #fa9021; /* Цвет кнопки */
+    color: #fff; /* Цвет шрифта */
+    border-radius: 50px;
+    padding: 15px 30px; /* Внутренние отступы */
+    border: 0;
+    transition: all 500ms ease; /* Анимация при наведении на кнопку */
+    font-size: 18px;
+}
+
+.hero--info .btn:hover {
+    cursor: pointer; /* Активный курсор */
+    transform: scale(1.1); /* Увелечение кнопки при наведении */
+}
+
+.hero img {                                          /* Дизайн картинки джостика */
+    position: absolute;
+    top: -150px;
+    right: 
+    0;
+}
+
+/* Секция с играми */
+
+.trending {
+    padding-top: 50px; /* Отступ сверху */
+}
+
+.trending h3 {                                           /* Curretly Trending Games  */
+    font-weight: 600; /* Жирность шрифта */
+    font-size: 31px; /* Размер шрифта */
+}
+
+.trending .see-all { /* Кнопка SEE ALL */
+    color: #fff;
+    background: #25211D;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: right; /* Кнопка расположена справа */
+    display: block;
+    transition: all 500ms ease;
+}
+
+.trending .see-all:hover {
+    transform: scale(1.1);
+}
+
+.trending .games{
+    display: flex;
+    justify-content: space-between; /* Растяжка картинок на всю ширину */
+    width: 100%;
+    padding: 50px 0;
+}
+
+.trending .games span {
+    display: block;
+    text-align: center; /* Текст находится ровно под картинкой */
+    margin-top: 20px;
+}
+
+.trending .games span img{
+    position: relative; /* Огонек находится ровно горизонтально по центру */
+    top: 5px;
+    margin-right: 7px; /* Небольшой отступ между текстом и огоньком */
+}
+
+.big-text {
+    padding: 50px 0;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    width: 800px;
+}
+
+.banner {
+    padding: 80px 0;
+}
+
+.banner h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.banner p {
+    line-height: 170%;
+    margin-bottom: 30px;
+    width: 550px;
+}
+
+.banner img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* Секция с изображением */
+
+.features {
+    background: url('/img/BG_screen.png') no-repeat center center fixed; /* Добавление изображения. Изображение подключается только один раз
+    не по оси Х и У, изображение стоит идеально по центру и изображение фиксировано(fixed) */
+
+    background-size: cover; /* Изображение растягивается на всю ширину секции */
+    padding: 80px;
+}
+
+.features h3, .features p{
+    margin-bottom: 20px; /* Отступ снизу */
+    text-align: center; /* Текст по центру */
+    max-width: 800px; /* Максимальная ширина блока для текста */
+
+    /* Автоматический отступ слева и справа */
+
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.features h3 {
+    font-size: 30px; /* Размер текста */
+}
+
+    /* Блок с картинками */
+.features .info {
+    display: flex;
+    justify-content: center; /* Все блоки идеально по центру */
+    flex-wrap: wrap;
+}
+
+
+.features .info .block {
+    text-align: center; /* Весь текст по центру */
+    width: 20%; /* Ширина для каждого блока */
+    margin: 30px 2%;
+}
+
+.features .info .block img {
+    margin-bottom: 15px; /* Отступ текста от картинок */
+}
+
+
+
+/* Секция с изображением 2 */
+
+.projects {
+    padding: 100px 0; /* Оступ сверху и снизу */
+}
+
+.projects h3 {
+    font-size: 30px; /* Размер текста */
+    text-align: center; /* Расположение */
+}
+
+.projects p {
+    margin: 40px;
+    text-align: center;
+}
+
+.projects .images {
+    display: flex;
+    justify-content: space-around; /* Центральное расположение */
+    margin-bottom: 25px;
+}
+
+.projects .see-all { /* Кнопка SEE ALL */
+    color: #fff;
+    background: #25211D;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: center; /* Кнопка расположена по середине */
+    display: block;
+    transition: all 500ms ease;
+    width: 60px;
+    text-align: center;
+    margin: 0 auto; /* Кнопка расположена по середине */
+    
+}
+
+.projects .see-all:hover {
+    transform: scale(1.1);
+}
+
+/* Нижняя часть */
+
+.email {
+    padding-bottom: 120px;
+}
+
+.email h3 {
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+.email .block {
+    background: #1c140f;
+    margin-top: 30px;
+    border-radius: 10px; /* Скругление углов */
+    padding: 40px 3%;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Элементы расположенные по вертикали идеально по центру */
+}
+
+.email .block h4 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.email .block p {
+    width: 500px;
+}
+
+.email .block input {
+    background: #fff;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    width: 380px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 20px 30px;
+    position: relative;
+    right: -100px;
+    z-index: 1;
+    padding-right: 120px; /* На определенном моменте импут поле закончится */
+}
+
+.email .block input::placeholder {
+    color: #898989;
+}
+
+.email .block button{     /* Дизайн кнопки */
+    background: #fa9021; /* Цвет кнопки */
+    padding: 9px 17px;    /* Внутренние отступы по высоте 9пкc, по бокам 17 */
+    border-radius: 5px;  /* Скругление улов кнопки */
+    transition: all 500ms ease;  /* Анимация длится 500 милисекунд. ease - название анимации. Плавный переход применяется ко всем св-вам*/
+    cursor: pointer; /* Активный курсор */
+    border: 0; /* Не будет обводки */
+    padding: 13px 17px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    
+}
+
+.email .block button:hover {
+    background: #a02604;
+}
+
+/* Страница про нас */
+.hero-about {
+    position: relative;
+}
+
+.hero-about .info {
+    width: 500px;
+    padding: 250px 0;
+}
+
+.hero-about .info h1 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.hero-about .info .btn {
+    background: #fa9021;
+    color: #fff;
+    border-radius: 50px;
+    border: 0;
+    padding: 15px 30px;
+    transition: all 500ms ease;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+.hero-about img {
+    position: absolute;
+    right: -180px;
+    top: 0;
+}
+
+.hero-about .info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.work {
+    padding: 80px 0;
+}
+
+.work h2 {
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.work .blocks {
+    display: flex;
+    justify-content: space-between;  /* Блоки сдвигаются влево в ряд */
+}
+
+.work .blocks .block {
+    width: 25%;
+    border-radius: 10px;
+    padding: 50px 35px;
+    background: #1c140f;
+}
+
+.work .blocks .block h3 {
+    font-size: 20px;
+    margin: 20px 0;
+
+}
+
+.work .blocks .block .badge {
+    border-radius: 7px;
+    padding: 10px 20px;
+}
+
+.work .blocks .block .badge.purple {
+    background: #560f67;
+}
+
+.work .blocks .block .badge.brown {
+    background: #31190D;
+}
+
+.work .blocks .block .badge.green {
+    background: #192a1d;
+}
+
+/* Страница контакты */
+.hero-contacts h1 {
+    text-align: center;
+    margin: 70px;
+    margin-bottom: 30px;
+    font-size: 33px;
+}
+
+.hero-contacts p {
+    text-align: center;
+}
+
+.hero-contacts img {
+    width: 70%;
+    margin: 80px 15%;
+}
+
+.feedback {
+    padding: 70px 0;
+    background: #1c140f;
+}
+
+.feedback h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+
+}
+
+.feedback p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.feedback form {
+    margin: 80px auto;
+    width: 600px;
+}
+
+.feedback form .inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feedback form .inline>div {
+    width: 50%;
+}
+
+.feedback form label {
+    color: #4f4f4f;
+    font-size: 14px;
+}
+
+.feedback form input,
+.feedback form textarea {
+    background: #2c2420;
+    border-radius: 10px;
+    border: 0.6px solid #cecece;
+    display: block;
+    width: 90%;
+    padding: 15px 10px;
+    outline: none;
+    color: #fff;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+.feedback form .one-line {
+    width: 96%;
+}
+
+.feedback form textarea{
+    resize: none;
+    height: 200px;
+}
+
+.feedback form button {
+    background: #DC7000;
+    border-radius: 5px;
+    border: 0;
+    float: left;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 35px;
+    transition: all 500ms ease;
+}
+
+.feedback form button:hover {
+    background: #9b0d0d;
+}
+
+
+/* Футер */
+
+footer {
+    background: #000000;
+    padding: 50px 0;
+}
+
+footer .blocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .blocks .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+footer .blocks p {
+    width: 300px;
+    margin: 15px 0;
+}
+
+footer .blocks h4 {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+footer .blocks ul {
+    list-style: none; /* Элементы отображаются не как список */
+}
+
+footer .blocks ul li {
+    margin-top: 7px;
+    opacity: 0.8; /* Прозрачность 0.8 */
+}
+
+footer hr {             /* Редактирование горизонатльной линии */
+    margin: 30px 0;
+    border: 0;
+    height: 0.6px;
+    background: #ccc;
+}
+
+footer > p {            /* Copyright ® 2021 Lorem All rights Rcerved */
+    text-align: center;
+}
+
